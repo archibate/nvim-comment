@@ -204,7 +204,7 @@ function M.setup(user_opts)
   vim.api.nvim_command("command! -range CommentToggle lua require('nvim_comment').comment_toggle(<line1>, <line2>)")
 
   if M.config.create_mappings then
-    local opts = { noremap = true }
+    local opts = { noremap = true, slient = true }
     api.nvim_set_keymap("n", M.config.line_mapping, "<Cmd>set operatorfunc=CommentOperator<CR>g@l", opts)
     api.nvim_set_keymap("n", M.config.operator_mapping, "<Cmd>set operatorfunc=CommentOperator<CR>g@", opts)
     api.nvim_set_keymap("x", M.config.operator_mapping, ":<C-u>call CommentOperator(visualmode())<CR>", opts)
